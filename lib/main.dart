@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:map/bloc/maps/maps_bloc.dart';
 import 'package:map/bloc/my_location/my_location_bloc.dart';
-
 import 'package:map/pages/access_gps_page.dart';
 import 'package:map/pages/loading_page.dart';
 import 'package:map/pages/map_page.dart';
@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => MyLocationBloc()),
+        BlocProvider(create: (_) => MapsBloc()),
       ],
       child: MaterialApp(
         title: 'Material App',
