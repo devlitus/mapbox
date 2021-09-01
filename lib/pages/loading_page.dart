@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:permission_handler/permission_handler.dart';
-
 import 'package:map/helpers/helpers.dart';
 import 'package:map/pages/access_gps_page.dart';
 import 'package:map/pages/map_page.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class LoadingPage extends StatefulWidget {
   @override

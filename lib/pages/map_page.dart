@@ -23,12 +23,16 @@ class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: BlocBuilder<MyLocationBloc, MyLocationState>(
-        builder: (context, state) {
-          return Text(
-              '${state.location?.latitude}, ${state.location?.longitude}');
-        },
-      )),
+      body: Center(
+        child: BlocBuilder<MyLocationBloc, MyLocationState>(
+          builder: (context, state) => createMap(state),
+        ),
+      ),
     );
+  }
+
+  Widget createMap(MyLocationState state) {
+    if (!state.existsLocation) return Text('locating...');
+    return Text('${state.location?.latitude}, ${state.location?.longitude}');
   }
 }
