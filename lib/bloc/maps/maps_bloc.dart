@@ -15,9 +15,9 @@ class MapsBloc extends Bloc<MapsEvent, MapsState> {
   late GoogleMapController _mapController;
 
   void initialMap(GoogleMapController controller) {
-    this._mapController = controller;
-    this._mapController.setMapStyle(jsonEncode(uberMapTheme));
     if (!state.initMap) {
+      this._mapController = controller;
+      this._mapController.setMapStyle(jsonEncode(uberMapTheme));
       add(OnLoadedMap());
     }
   }

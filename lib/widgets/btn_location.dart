@@ -14,8 +14,9 @@ class BtnLocation extends StatelessWidget {
         child: IconButton(
           icon: Icon(Icons.my_location, color: Colors.black87),
           onPressed: () {
-            final destination = myLocationBloc.state.location;
-            print(destination);
+            final lnt = myLocationBloc.state.location!.latitude;
+            final lng = myLocationBloc.state.location!.longitude;
+            final destination = LatLng(lnt, lng);
             mapBloc.moveCamera(destination);
           },
         ),

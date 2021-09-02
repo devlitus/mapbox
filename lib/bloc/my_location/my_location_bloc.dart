@@ -11,7 +11,7 @@ part 'my_location_state.dart';
 class MyLocationBloc extends Bloc<MyLocationEvent, MyLocationState> {
   MyLocationBloc() : super(MyLocationState());
 
-  StreamSubscription<Position>? _positionSubscription;
+  late StreamSubscription<Position> _positionSubscription;
 
   void initFollowing() {
     _positionSubscription = Geolocator.getPositionStream(
@@ -24,12 +24,13 @@ class MyLocationBloc extends Bloc<MyLocationEvent, MyLocationState> {
   }
 
   void cancelFollowing() {
-    _positionSubscription?.cancel();
+    _positionSubscription.cancel();
   }
 
   @override
   Stream<MyLocationState> mapEventToState(MyLocationEvent event) async* {
     if (event is OnChangeLocation) {
+      print(event.location);
       yield (state.copyWith(existLocation: true, location: event.location));
     }
   }

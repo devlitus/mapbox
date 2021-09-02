@@ -41,17 +41,21 @@ class _MapPageState extends State<MapPage> {
   }
 
   Widget createMap(MyLocationState state) {
-    if (!state.existsLocation) return Text('locating...');
+    if (!state.existsLocation) return Text('Loading...');
     final blocMap = BlocProvider.of<MapsBloc>(context);
+    final lat = state.location!.latitude;
+    final lng = state.location!.longitude;
+    final location = new LatLng(lat, lng);
     final initialCameraPosition = new CameraPosition(
-      target: state.location,
+      target: location,
       zoom: 15,
     );
     return GoogleMap(
       initialCameraPosition: initialCameraPosition,
       compassEnabled: true,
-      myLocationButtonEnabled: true,
+      myLocationButtonEnabled: false,
       myLocationEnabled: true,
+      zoomControlsEnabled: false,
       onMapCreated: blocMap.initialMap,
     );
   }

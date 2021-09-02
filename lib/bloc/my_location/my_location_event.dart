@@ -5,6 +5,5 @@ abstract class MyLocationEvent {}
 
 class OnChangeLocation extends MyLocationEvent {
   final LatLng location;
-
   OnChangeLocation(this.location);
 }
