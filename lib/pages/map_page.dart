@@ -26,10 +26,17 @@ class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: BlocBuilder<MyLocationBloc, MyLocationState>(
-          builder: (context, state) => createMap(state),
-        ),
+      body: Stack(
+        children: [
+          BlocBuilder<MyLocationBloc, MyLocationState>(
+            builder: (context, state) => createMap(state),
+          ),
+          Positioned(
+            top: 13,
+            child: SearchBar(),
+          ),
+          ManualMaker(),
+        ],
       ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -41,7 +48,7 @@ class _MapPageState extends State<MapPage> {
   }
 
   Widget createMap(MyLocationState state) {
-    if (!state.existsLocation) return Text('Loading...');
+    if (!state.existsLocation) return Center(child: Text('Loading...'));
     final blocMap = BlocProvider.of<MapsBloc>(context);
     final lat = state.location!.latitude;
     final lng = state.location!.longitude;
