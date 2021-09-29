@@ -1,7 +1,7 @@
 part of 'widgets.dart';
 
 class ManualMaker extends StatelessWidget {
-  const ManualMaker({Key? key}) : super(key: key);
+  const ManualMaker({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class ManualMaker extends StatelessWidget {
 }
 
 class _BuildManualMaker extends StatelessWidget {
-  const _BuildManualMaker({Key? key}) : super(key: key);
+  const _BuildManualMaker({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

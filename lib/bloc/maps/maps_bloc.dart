@@ -12,7 +12,7 @@ part 'maps_state.dart';
 class MapsBloc extends Bloc<MapsEvent, MapsState> {
   MapsBloc() : super(MapsState());
 
-  late GoogleMapController _mapController;
+  GoogleMapController _mapController;
 
   void initialMap(GoogleMapController controller) {
     if (!state.initMap) {

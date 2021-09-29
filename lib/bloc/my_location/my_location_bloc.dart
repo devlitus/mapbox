@@ -11,7 +11,7 @@ part 'my_location_state.dart';
 class MyLocationBloc extends Bloc<MyLocationEvent, MyLocationState> {
   MyLocationBloc() : super(MyLocationState());
 
-  late StreamSubscription<Position> _positionSubscription;
+  StreamSubscription<Position> _positionSubscription;
 
   void initFollowing() {
     _positionSubscription = Geolocator.getPositionStream(

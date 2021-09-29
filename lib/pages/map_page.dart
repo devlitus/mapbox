@@ -50,8 +50,8 @@ class _MapPageState extends State<MapPage> {
   Widget createMap(MyLocationState state) {
     if (!state.existsLocation) return Center(child: Text('Loading...'));
     final blocMap = BlocProvider.of<MapsBloc>(context);
-    final lat = state.location!.latitude;
-    final lng = state.location!.longitude;
+    final lat = state.location.latitude;
+    final lng = state.location.longitude;
     final location = new LatLng(lat, lng);
     final initialCameraPosition = new CameraPosition(
       target: location,
